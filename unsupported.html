@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.theywilleatyou.com/unsupported.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Sep 2014 17:11:09 GMT -->
+<head>
+	<meta charset="utf-8" />
+	<title>They Will Eat You!</title>
+	<!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />-->
+	<link rel="stylesheet" type="text/css" href="css/core.css" />
+	<link rel="stylesheet" href="css/TeXGyreHeros/stylesheet.css" type="text/css" charset="utf-8">
+	<style>
+	*{ margin: 0; padding: 0; box-sizing: border-box; }
+	body{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: #d41e1f; overflow: hidden;}
+	#container{ width: 100%; height: 100%; background-image: url( 'img/grain.jpg' ); position: absolute; left: 0; top: 0; right: 0; margin-top: 0; }
+	.ground{ position: absolute; left: 0; top: 490px; bottom: 0; right: 0; background-color: black;}
+	.grass{ position: absolute; left: 0; top: 463px; height: 29px; right: 0; background-image: url( img/ground-tile.png); background-repeat: repeat-x;}
+	.large_tombstone{ width: 147px; height: 284px; background-image: url( img/main_tombstone_large.png); position: absolute; right: 50%; margin-right: 321px; top: 208px;}
+	.tombstone1{ position: absolute; width: 47px; height: 64px; background-image: url( img/tombstone1.png); left: 50%; margin-left: 260px; top: 425px; opacity: .8;}
+	.tombstone2{ position: absolute; width: 63px; height: 109px; background-image: url( img/tombstone2.png); left: 50%; margin-left: 333px; top: 377px; opacity: .6;}
+	.tombstone3{ position: absolute; width: 51px; height: 74px; background-image: url( img/tombstone3.png); left: 50%; margin-left: 418px; top: 415px; opacity: .8;}
+	#overlay{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: url( img/grain_transparent.png); background-repeat: repeat;}
+	.box{ width: 1010px; position: absolute; left: 50%; top: 35px; margin-left: -505px; border-top: 1px solid #e4d5c6; }
+	.inner-box{ width: 494px; position: absolute; left: 50%; top: 85px; margin-left: -297px; color: #e4d5c6; }
+	.inner-box h1{ font: 35px/35px 'TeXGyreHerosBold', Arial, sans-serif; color: inherit; margin-bottom: 35px;}	
+	.inner-box p{ font: 15px/15px 'TeXGyreHeros', Arial, sans-serif; color: inherit; margin-bottom: 1em;}
+	.inner-box a{ font: inherit; font-size: inherit; line-height: inherit;}
+	.inner-box ul{ margin-top: 60px;}
+	.inner-box li{ float: left; border-top: 1px solid #e4d5c6; background-repeat: no-repeat; background-position: 0 12px;}
+	.inner-box li a{ font: 25px/25px 'TeXGyreHerosBold', Arial, sans-serif; width: 236px; height: 90px; display: block; padding: 30px 0 0 40px; text-align: center;}
+	.inner-box li.chrome{ margin-right: 22px; background-image: url( img/chrome.png); }
+	.inner-box li.firefox{background-image: url( img/firefox.png);  }
+	</style>
+</head>
+<body>
+
+	<div id="container">
+		<div class="large_tombstone" ></div>
+		<div class="tombstone1" ></div>
+		<div class="tombstone2" ></div>
+		<div class="tombstone3" ></div>
+		<div class="ground"></div>
+		<div class="grass"></div>
+		<div class="box">
+			<div class="inner-box">
+				<h1>Bring This Experience to Life.</h1>
+				<p>You’re using a web browser or platform that is not supported. Please take a moment to download a modern browser that supports WebGL or open this site from a workstation computer or a laptop.</p>
+				<p>To learn more about WebGL please visit: <a href="http://get.webgl.org/">http://get.webgl.org/</a>.</p>
+				<ul>
+					<li class="chrome"><a href="http://www.google.com/chrome" >Chrome</a></li>
+					<li class="firefox"><a href="http://www.mozilla.org/firefox">Firefox</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="overlay"></div>
+
+	<script>
+
+	window.addEventListener( 'load', function( e ) {
+
+		var 
+			container = document.querySelector( '#container' ),
+			overlay = document.querySelector( '#overlay' ),
+			grass = document.querySelector( '.grass' ),
+			logo = document.querySelector( '.logo' ),
+			logo_container = document.querySelector( '.logo-container' ),
+			large_tomb = document.querySelector( '.large_tombstone' ),
+			tomb1 = document.querySelector( '.tombstone1' ),
+			tomb2 = document.querySelector( '.tombstone2' ),
+			tomb3 = document.querySelector( '.tombstone3' ),
+			text = document.querySelector( 'h1' )
+		;
+
+		function animateLogo() {
+
+			var x = Math.random() - .5, y = Math.random() - .5;
+			logo.style.webkitTransform = 'rotateX(' + ( x * 40 ) + 'deg) rotateY(' + ( y * 40 ) + 'deg)';
+			var t = 1000 + Math.random() * 5000;
+			logo.style.webkitTransitionDuration = t + 'ms';
+			setTimeout( animateLogo, t );
+			
+		}
+
+		function updateAssets( x, y ) {
+
+			var
+				scale = .2,
+				logo_offset = scale * 20,
+				large_tomb_offset = scale * 40,
+				tomb1_offset = scale * 10,
+				tomb2_offset = scale * 8,
+				tomb3_offset = scale * 4,
+				text_offset = scale * 30;
+
+			grass.style.backgroundPosition = ( 1.1 * large_tomb_offset * x ) + 'px 0';
+			overlay.style.backgroundPosition = ( 1.2 * large_tomb_offset * x ) + 'px 0';
+
+			large_tomb.style.webkitTransform = large_tomb.style.MozTransform = large_tomb.style.msTransform ='translateX(' + ( large_tomb_offset * x ) + 'px) translateZ(0) rotate( -2deg)';
+			tomb1.style.webkitTransform = tomb1.style.MozTransform = tomb1.style.msTransform ='translateX(' + ( tomb1_offset * x ) + 'px) translateZ(0) rotate(.5deg)';
+			tomb2.style.webkitTransform = tomb2.style.MozTransform = tomb2.style.msTransform ='translateX(' + ( tomb2_offset * x ) + 'px) translateZ(0) rotate(-3deg)';
+			tomb3.style.webkitTransform = tomb3.style.MozTransform = tomb3.style.msTransform ='translateX(' + ( tomb3_offset * x ) + 'px) translateZ(0) rotate( 3deg)';
+
+		}
+		window.addEventListener( 'mousemove', function( e ) {
+
+			var 
+				x = ( e.pageX / window.innerWidth ) - .5,
+				y = ( e.pageY / window.innerHeight ) - .5;
+
+			updateAssets( x, y );
+
+		}, false );
+
+		onWindowResize();
+		updateAssets( 0, 0 );
+		//animateLogo();
+
+	}, false );
+
+	function onWindowResize() {
+		if( window.innerHeight > 800 ) {
+			container.style.top = '50%';
+			container.style.marginTop = - .5 * 1004 + 'px';
+		} else {
+			container.style.top = 0;
+			container.style.marginTop = 0;
+
+		}
+	}
+
+	window.addEventListener( 'resize', onWindowResize, false );
+
+	</script>
+
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-35952028-1']);
+		_gaq.push(['_trackPageview']);
+		
+		(function () {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+		
+	</script>
+
+</div>
+
+</body>
+
+<!-- Mirrored from www.theywilleatyou.com/unsupported.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Sep 2014 17:11:17 GMT -->
+</html>

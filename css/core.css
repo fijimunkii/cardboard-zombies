@@ -1,0 +1,224 @@
+*{ margin: 0; padding: 0; box-sizing: border-box; -moz-box-sizing: border-box; font: 10px/10px 'TeXGyreHeros', Arial, sans-serif; vertical-align: top; }
+body{ background-color: black; overflow: hidden; }
+.page{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; padding: 20px; background-color: black; color: #d9cfab; }
+ul{ list-style-type: none;}
+a{ color: inherit; text-decoration: none;}
+a:hover{ color: inherit ;}
+
+.facebook { width: 13px; height: 28px; display: block; background-image: url( ../img/social.png); background-position: 0 0; }
+.facebook:hover, .facebook.dark{ background-position: 0 -28px; }
+.twitter { width: 29px; height: 28px; display: block; background-image: url( ../img/social.png); background-position: -13px 0; }
+.twitter:hover, .twitter.dark{ background-position: -13px -28px; }
+.gplus { width: 29px; height: 28px; display: block; background-image: url( ../img/social.png); background-position: -45px 0; }
+.gplus:hover, .gplus.dark{ background-position: -45px -28px; }
+
+#intro{ display: none; }
+#game{ display: none; }
+
+#death{ pointer-events: auto; background-color: rgba( 0,0,0,.8);}
+#death .container{ width: 950px; height: 580px; position: absolute; left: 50%; top: 50%; margin-left: -475px; margin-top: -290px; background-image: url( ../img/brain_food.png); background-repeat: no-repeat; background-position: 50% 50%; }
+#death h1{ position: absolute; left: 0; top: 30px; color: #e4d5c6; font-family: 'TeXGyreHerosBold'; font-size: 40px; line-height: 40px;}
+#death h1 span{ font: inherit; color: #b32128;}
+#death h2{ position: absolute; left: 0; top: 205px; width: 342px; border-top: 1px solid #e4d5c6; color: #e4d5c6; font: 19.5px/19.5px 'TeXGyreHerosBold'; padding-top: 10px;}
+#death .scores{ position: absolute; left: 0; top: 260px; width: 342px; height: 106px; border-bottom: 1px solid #e4d5c6;}
+#death .scores ul{ width: 171px; float: left;}
+#death .scores li{ height: 31px; font: 19.5px/19.5px 'TeXGyreHerosBold'; position: relative; padding-left: 30px; }
+#death .scores li span{ position: absolute; left: 0; top: 0; width: 37px; font: 11.7px/11.7px 'Courier New', monospace; padding-left: 7px; padding-top: 4px;}
+#death .social{ position: absolute; left: 0; top: 381px; width: 342px; font: 16.5px/16.5px 'TeXGyreHerosBold'}
+#death .social a{ position: absolute; right: 0; top: 0;}
+#death .actions{ position: absolute; left: 567px; top: 26px; }
+#death .actions a{ width: 340px; height: 73px; border-top: 1px solid #e4d5c6; padding: 12px; font: 40px/40px 'TeXGyreHerosBold'; display: block; }
+#death .actions a:hover{ color: #b82229 }
+
+#pause{ pointer-events: auto; background-color: rgba( 0,0,0,.8);}
+#pause .container{ position: absolute; width: 640px; height: 510px; left: 50%; margin-left: -320px; top: 165px; background-image: url( ../img/pause.png); background-repeat: no-repeat; background-position: 50% 40px; }
+#pause h1{ position: absolute; left: 0; right: 0; top: -20px; text-align: center; color: #e4d5c6; font-family: 'TeXGyreHerosBold'; font-size: 40px; line-height: 40px;}
+#pause .actions{ position: absolute; left: 110px; top: 300px; right: 0;}
+#pause .actions a{ position: relative; float: left; display: block; width: 195px; height: 40px; border-top: 1px solid #e4d5c6; padding-top: 10px; text-align: center; font: 20px/20px 'TeXGyreHerosBold'; margin-right: 10px;}
+#pause .actions a:hover{ border-top-color: #b82229; color: #b82229;}
+#pause a.audio-switch-button{ position: absolute; right: 30px; top: 30px; text-align: right; font: 20px/20px 'TeXGyreHerosBold'; color: #e4d5c6;}
+#pause a.audio-switch-button:hover{ color: #b82229;}
+#pause .actions a span{ width: 14px; height: 17px; background-image:url( ../img/arrows.png); display: block; position: absolute; }
+.resume-game-button span{ left: 11px; top: 13px;}
+.back-to-site-button span{ right: 11px; top: 13px; background-position: -14px 0;}
+.resume-game-button:hover span{ background-position: 0 -17px;}
+.back-to-site-button:hover span{ background-position: -14px -17px;}
+
+#overlay{ position: fixed; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; pointer-events: none; background-image: url( ../img/grain_transparent_2.png); background-repeat: repeat; z-index: 15; }
+#loader{ position: fixed; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; background-color: #da2329; pointer-events: none; opacity: 0; z-index: 15;}
+#loader.visible{ pointer-events: auto; opacity: 1;}
+#loader .content{ width: 1010px; position: absolute; left: 50%; margin-left: -505px; top: 0; color: #f5f7cc; }
+#loader h1{ top: 35px ;position: absolute; left: 0; right: 0; border-top: 1px solid #f5f7cc; font-family: 'TeXGyreHerosBold'; font-size: 20px; padding-top: 15px;}
+#loader ul{ position: absolute; left: 0; top: 570px; right: 0;}
+#loader li{ font: 20px/20px 'TeXGyreHerosBold'; width: 320px; height:105px; float: left; padding-left: 120px; background-position: 0 0; background-repeat: no-repeat; padding-top: 20px;}
+#loader li:nth-child(1){ background-image: url( ../img/mouse.png);}
+#loader li:nth-child(2){ background-image: url( ../img/zombies.png) }
+#loader li:nth-child(3){ background-image: url( ../img/clock.png);}
+#loader .get-ready-to-run{ position: absolute; left: 0; top: 372px; right: 0; height: 59px; background-image: url( ../img/get-ready-to-run.png); background-position: 50% 0; background-repeat: no-repeat;}
+#loader .moon{ position: absolute; left: 356px; top: 35px; width: 359px; height: 359px; background-image: url( ../img/moon.png);}
+#loader .hand{ position: absolute; left: 440px; top: 108px; width: 178px; height: 226px; background-image: url( ../img/hand.png); background-repeat: no-repeat; background-position: 0 226px;}
+#loader .ground{ position: absolute; left: 362px; top: 321px; width: 340px; height: 51px; background-image: url( ../img/ground.png);}
+#loader .percentage{ position: absolute; left: 50%; margin-left: -273px; top: 457px; width: 546px; border-top: 2px solid #f5f7cc; font: 30px/30px 'TeXGyreHerosBold'; color: #f5f7cc; text-align: center; padding-top: 35px;}
+#selection{ overflow: auto;  display: none;}
+#selection .slider{ display: block; position: absolute; left:0; top: 0; width: 10400px; height: 768px; background-image: url( ../img/background.png); background-repeat: no-repeat; overflow: hidden;}
+#actions{ position: absolute; left: 545px; top: 476px; opacity: 0; -webkit-transition: opacity 1s ease-out; -moz-transition: opacity 1s ease-out;}
+#logo{ position: absolute; left: 353px; top: 96px; width: 619px; height: 364px; background-image: url( ../img/logo.png); pointer-events: none;
+-webkit-transform: translateY( 600px ); -moz-transform: translateY( 600px ) }
+#selection .visible{ -webkit-transform: translateY( 0 ); -webkit-transition: -webkit-transform 3.5s linear, margin 100ms ease-in-out;
+-moz-transform: translateY( 0 ); -moz-transition: -moz-transform 3.5s linear;}
+#sky{ position: absolute; left: 0; top: 0; width: 5300px; height: 100%; bottom: 0; background-color: #be1818;}
+#selection .grass{ position: absolute; left: 0; bottom: 33px; width: 5300px; height: 29px; background-image: url( ../img/ground-tile.png); background-repeat: repeat-x;}
+#selection .filler{ position: absolute; left: 0; bottom: 0; height: 33px; background-color: black; width: 5300px;}
+#trees{ position: absolute; left: 0; top: 0; width: 3083px; bottom: 0; }
+
+#selection ul.mountains{ position: absolute; left: 0; bottom: 33px; width: 5300px; overflow:hidden }
+#selection .fillmountains{ position: absolute; left: 0; top: 521px; width: 5300px; height: 55px; background-color: #700000;}
+#selection ul.mountains li{ float: left; background-position: left bottom; background-repeat: no-repeat;}
+#selection ul.mountains li.mountain{ width: 1512px; height: 190px; background-image: url( ../img/mountain.png); }
+#selection ul.mountains li.town{ width: 616px; height: 190px; background-position: 0 bottom; background-image: url( ../img/house.png); }
+
+#menu{ position: fixed; left: 5px; top: 0; padding: 25px 0 0 17px; width: 194px; z-index: 10;
+-webkit-transition: -webkit-transform 250ms ease-out;
+-moz-transition: -moz-transform 250ms ease-out;
+transition: transform 250ms ease-out
+}
+#menu ul{ list-style-type: decimal; list-style-position: inside; }
+#menu li{ width: 160px; height: 89px; border-top: 1px solid #d9cfab; font-size: 12px; font-family: 'Courier New', monospace; line-height: 14px; position: relative; padding-top: 7px; }
+#menu li a{ position: absolute; left: 22px; top: 6px; font-size: 23px; line-height: 21px; font-weight: normal; font-family: 'TeXGyreHerosBold';}
+#menu li:hover{ color: black; border-top-color: black ;}
+#menu.active{ background-color: #dad0ab;}
+#menu.active li{ color: #be1818; border-top-color: #BE1818;}
+#menu.active li:hover{ color: black ; border-top-color: black }
+#menu .hand{ position: absolute; left: 15px; top: 100%; width: 150px; height: 130px; background-image: url( ../img/hand1.png); 
+-webkit-transform: translateY( -450px ); 
+-moz-transform: translateY( -450px ); 
+transform: translateY( -450px ); 
+-webkit-transition: -webkit-transform 250ms ease-out;
+-moz-transition: -moz-transform 250ms ease-out;
+transition: transform 250ms ease-out
+}
+#menu .hand:hover{ background-image: url( ../img/hand2.png); }
+#menu.active .hand{ 
+-webkit-transform: translateY(0);
+-moz-transform: translateY(0);
+transform: translateY(0);
+}
+
+.fadeable{ -webkit-transition: opacity 500ms ease-out; -moz-transition: opacity 500ms ease-out; opacity: 0;}
+
+.tree{ position: absolute; left: 0; bottom: 0; background-repeat: no-repeat; }
+.tree1{ background-image: url( ../img/Tree01.png); width: 1183px; height: 1141px; }
+.tree2{ background-image: url( ../img/Tree02.png); width: 1381px; height: 1714px; }
+.tree3{ background-image: url( ../img/Tree03.png); width: 819px; height: 974px; }
+.tree4{ background-image: url( ../img/Tree04.png); width: 1244px; height: 1702px; }
+.tree5{ background-image: url( ../img/Tree05.png); width: 1433px; height: 1488px; }
+.tree6{ background-image: url( ../img/Tree06.png); width: 857px; height: 1153px; }
+.tree7{ background-image: url( ../img/Tree07.png); width: 1038px; height: 1453px; }
+.tree8{ background-image: url( ../img/Tree08.png); width: 1130px; height: 1544px; }
+.tree9{ background-image: url( ../img/Tree09.png); width: 665px; height: 905px; }
+
+.play-game-button{ width: 180px; height: 39px; border: 1px solid #ffffca; display: block; font-family: 'TeXGyreHerosBold';
+	font-weight: normal; padding: 13px 0 0 16px; font-size: 23px; background-image: url( ../img/small-skull.png); 
+	background-repeat: no-repeat; background-position: 143px 9px;
+}
+.play-game-button:hover{ background-color: black;}
+.replay-video-button{ width: 180px; height: 39px; padding: 5px; text-align: center; font-family: 'TeXGyreHerosBold';
+display: block; font-size: 18px; margin-top: 10px;}
+.replay-video-button:hover{ color: black;}
+
+a[name=education]{ position: absolute; left: 5200px; top: 0 }
+#guide{ position: absolute; left: 5400px; top: 0; color: #c8b57f}
+#guide h1{ position: absolute; left: 52px; top: 52px; width: 610px; border-top: 2px solid #c8b57f; font-size: 55px; line-height: 55px; font-family: 'TeXGyreHerosBold'; display: block; padding-top: 5px;}
+#guide h2{ font-family: 'TeXGyreHerosBold';position: relative; padding-left: 25px; width: 100%; border-top: 2px solid #c8b57f; padding-top: 10px; font-size: 25px; line-height: 25px;}
+#guide ul.pages > li{ float: left; height: 100%; display: block; padding: 52px; position: relative;}
+#guide h2 span{ font-size: 11px; font-family: 'courier new', monospace; position: absolute; left: 0; top: 12px;}
+.glasses{ position: absolute; left: 39px; top: 308px; width: 526px; height: 215px; background-image: url( ../img/glasses.png);}
+.body-map{ position: absolute; left: 40px; top: 129px; width: 502px; height: 648px; background-image: url( ../img/man.png); }
+.eagle{ position: absolute; left: 39px; top: 634px; width: 360px; height: 73px; background-image: url( ../img/eagle.png); background-repeat: no-repeat; background-position: 13px 13px;}
+.eagle p{ position: absolute; left: 85px; top: 0; bottom: 0; border-left: 2px solid #7e796a; padding: 12px 0 0 23px; font-size: 14px; line-height: 16px; font-family: 'TeXGyreHerosBold'}
+.pie-chart{ position: absolute; left: 64px; top: 200px; width: 369px; height: 369px; background-color: #c0ae7a; border-radius: 369px; }
+.graph{ position: absolute; left: 101px; top: 113px; width: 458px; height: 458px; background-image: url( ../img/line_graph.png); }
+.line-graph{ width: 150px; height: 100px; border-top: 1px solid #a5a38d; margin-top: 8px; background-position: 0 10px; background-repeat: no-repeat;}
+.zig-zag{ background-image: url( ../img/line_zigzag.png); }
+.straight-shot{ background-image: url( ../img/line_straightshot.png); }
+.play-dead{ background-image: url( ../img/line_playdead.png); }
+.play-zombie{ background-image: url( ../img/line_playzombie.png); }
+.section-zombie-education{ width: 713px; }
+.section-zombie-guide{ width: 687px ;}
+.section-zombie-evasion{ width: 901px ;}
+.section-zombie-intention{ width: 899px ;}
+.section-zombie-population{ width: 900px;}
+.section-zombie-population ul{ position: absolute; left: 610px; top: 121px;}
+.section-zombie-population li{ font-size: 20px; line-height: 20px; margin-bottom: 25px; background-repeat: no-repeat; background-position: 0 8px; padding-left: 35px; font-family: 'TeXGyreHerosBold';}
+.section-zombie-population li:nth-child(1){ background-image: url( ../img/line_graph_zombies.png);}
+.section-zombie-population li:nth-child(2){ background-image: url( ../img/line_graph_humans.png);}
+.section-zombie-good-luck{ width: 880px; }
+.section-zombie-guide ul{ width: 400px;}
+.section-zombie-guide li{ display: inline; width: auto; height: auto;}
+.section-zombie-guide ul{ font-size: 10px;}
+.section-zombie-intention ul{ position: absolute; left: 510px; top: 325px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;}
+.section-zombie-intention li{ margin-bottom: 18px;}
+.section-zombie-intention li span{ float: left; width: 10px; height: 10px; display: block; background-color: #c0ae7a; margin-right: 7px;}
+.section-zombie-intention li:nth-child(1) span{ opacity: .25;}
+.section-zombie-intention li:nth-child(2) span{ opacity: .5 ;}
+#guide table{ margin-top: 30px;}
+#guide td{ vertical-align: top ;}
+#guide tr.title td{ font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+#guide tr.line td{ font-size: 13px; height: 123px; }
+#guide tr.line td:nth-child(1), #guide tr.line td:nth-child(2){ font-size: 21px; line-height: 21px; font-family: 'TeXGyreHerosBold'; padding-top: 30px ;}
+#guide tr.line td:nth-child(4){ font-size: 13px; line-height: 20px; padding-left: 40px;}
+#guide td:nth-child(1){ width: 133px;}
+#guide td:nth-child(2){ width: 175px;}
+#guide td:nth-child(3){ width: 160px;}
+#guide td:nth-child(4){ width: 350px;}
+.population-label{ font-family: 'TeXGyreHerosBold';position: absolute; left: -60px; top: 315px; text-align: center; width: 255px; height: 10px; -moz-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); font-size: 20px;}
+.time-label{ font-family: 'TeXGyreHerosBold';position: absolute; left: 210px; top: 595px; width: 260px; text-align: center; font-size: 20px;}
+.section-zombie-guide ul li{ position: absolute; font-size: 13px; line-height: 16px;}
+.section-zombie-guide ul li:nth-child(1){ left: 362px; top: 148px;}
+.section-zombie-guide ul li:nth-child(2){ left: 171px; top: 235px;}
+.section-zombie-guide ul li:nth-child(3){ left: 87px; top: 290px;}
+.section-zombie-guide ul li:nth-child(4){ left: 36px; top: 339px;}
+.section-zombie-guide ul li:nth-child(5){ left: 403px; top: 413px;}
+.section-zombie-guide ul li:nth-child(6){ left: 156px; top: 495px;}
+.section-zombie-guide ul li:nth-child(7){ left: 172px; top: 624px;}
+.section-zombie-guide ul li:nth-child(8){ left: 124px; top: 704px;}
+
+#scores{ position: absolute; left: 3614px; top: 0; width: 844px; color: #d9cfab;}
+#scores .box{ width: 847px; height: 591px; background-image: url( ../img/survival_times.png); background-position: 0 20px; background-repeat: no-repeat;}
+#scores ul{ width: 250px; float: left;}
+#scores ul li{ font-family: 'TeXGyreHerosRegular'; font-size: 21.23px; height: 45px; padding-left: 10px; position: relative;}
+#scores .score-values{ position: absolute; left: 75px; top: 255px; right: 0;}
+#scores ul li span{ font-family: 'Courier New', monospace; font-size: 11.89px; position: absolute; left:0; top: 0;}
+#scores ul li b{font-family: 'TeXGyreHerosBold'; font-size: inherit; }
+#scores .share-score{ position: absolute; right: 40px; bottom: 40px; width: 300px; font-family: 'TeXGyreHerosBold'; font-size: 21.23px; text-align: right; padding-right: 50px;}
+#scores .share-score .twitter{ position: absolute; right: 0; top: -8px; }
+
+#b-reel-logo{ position: absolute; left: 0; bottom: 0; width: 142px; height: 17px; background-image: url( ../img/b-reel_logo.png);}
+#b-reel-logo:hover{ background-position: 0 -17px; }
+#social{ position: absolute; left: 31px; bottom: 16px; right: 31px; }
+#social ul{ position: absolute; left: 180px; bottom: 0; width: 200px;}
+#social li{ float: left; padding: 0 15px;}
+#social li:first-child{ padding-left: 0;}
+#social li:last-child{ border: none; }
+#social li a{color: #de1111; font-family: 'TeXGyreHerosBold'; font-size: 14.17px;}
+#social li a:hover{ color: #d9cfab;}
+#social li a div{ background-image: url( ../img/social-small.png); background-repeat: no-repeat; background-position: 0 0 }
+#social li:nth-child(2) a div{ width: 8px; height: 16px; }
+#social li:nth-child(2) a:hover div{ background-position: 0 -16px;}
+#social li:nth-child(3) a div{ width: 19px; height: 16px; background-position: -8px 0 ;}
+#social li:nth-child(3) a:hover div{background-position: -8px -16px;}
+#social li:nth-child(1) a div{ width: 16px; height: 16px; background-position: -27px 0; }
+#social li:nth-child(1) a:hover div{ background-position: -27px -16px;}
+.audio-button{ font-family: 'TeXGyreHerosBold'; font-size: 14px; color: #ef221f; position: fixed; right: 31px; bottom: 27px; background-color: rgba( 0,0,0,.75); padding: 10px 15px; border-radius: 20px;}
+.audio-button:hover{ color: #D9CFAB;}
+
+#game-container{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; opacity: 0; }
+#game-container .hud{ position: absolute; left: 40px; top: 40px; right: 40px; border-top: 1px solid #f5f7cc; z-index: 10;}
+#game-container .time, #game-container .text{ position: absolute; padding-top: 16px; top: 0; color: #f5f7cc }
+#game-container .time{ font: 30px/30px 'TeXGyreHerosBold'; left: 0;}
+#game-container .text{ font: 15px/15px 'TeXGyreHerosRegular'; right: 0; }
+#game-container .text span{ border: 1px solid #f5f7cc; border-radius: 1px; padding: 6px; line-height: 15px; }
+
+#video{ display: none; z-index: 12;}
+#preloader img{ position: absolute; left: 50%; top: 50%; margin-left: -250px; margin-top: -132px; width: 500px; height: 264px;}
+#video video{ position: fixed; left: 0; top: 0; right: 0; bottom: 0; }
