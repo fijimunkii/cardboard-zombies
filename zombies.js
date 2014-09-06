@@ -1,3 +1,8 @@
+// originally from theywilleatyou.com
+// didn't see any mention of a coypright so
+// i'm freely hacking and publishing the source
+// fijimunkii
+
 var ZOMBIES = {Main: function() {
         function a(a, b) {
             a.style.opacity = b ? 1 : 0;
